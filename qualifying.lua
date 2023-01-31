@@ -18,6 +18,11 @@ function p.QualifierStart()
 	args['title'] = args['title'] or 'Qualifying'
 	args['type'] = args['type'] or 'solo'
 	
+	-- Default to solo if given an invalid table type
+	if args['type'] != 'solo' and args['type'] != 'average' and args['type'] != 'target' then
+		args['type'] = 'solo'
+	end
+	
 	local output = '<div class="qualifier-wrapper"><table><caption>' .. args['title'] .. '</caption>'
 	output = output .. '<tr><th>Seed</th><th>Player></th>'
 	
