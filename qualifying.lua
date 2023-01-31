@@ -48,8 +48,29 @@ end
 -- flag = the flag of the player
 -- score = the highest score the player got during qualifying
 -- forfeit = if the player dropped out after qualifying but before bracket
-function p.SoloQualifier()
+function p.SoloQualifier(frame)
+	args = getArgs(frame)
 	
+	args['forfeit'] = args['forfeit'] or 'false'
+	
+	-- TODO: Figure out how to handle seeds in an elegant manner
+	-- Will go for all four qualifier functions but focus is on Solo for now
+	local output = '<tr><td>' .. '1' .. '</td><td'
+	
+	-- If the player is listed as forfeiting, strike out their name
+	if args['forfeit'] == true
+		output = output .. ' style:"text-decoration:line-through;"'
+	end
+	
+	output = output .. '>' .. args['player']
+	
+	if args['flag']
+		output = output .. ' {{flag|' .. args['flag'] .. '}}'
+	end
+	
+	output = output .. '</td><td>{{formatnum:' .. args['score'] .. '}}</td></td>'
+	
+	return output
 end
 
 -- Players who qualified by submitting multiple high scores averaged together
