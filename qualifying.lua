@@ -18,7 +18,8 @@ function p.QualifierStart()
 	args['title'] = args['title'] or 'Qualifying'
 	args['type'] = args['type'] or 'solo'
 	
-	local output = '<div class="qualifier-wrapper"><table><tr><th>Seed</th><th>Player></th>'
+	local output = '<div class="qualifier-wrapper"><table><caption>' .. args['title'] .. '</caption>'
+	output = output .. '<tr><th>Seed</th><th>Player></th>'
 	
 	if args['type'] == 'solo' then
 		output = output .. '<th>Score</th></tr>'
