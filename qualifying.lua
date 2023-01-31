@@ -20,12 +20,12 @@ function p.QualifierStart()
 	
 	local output = '<div class="qualifier-wrapper"><table><tr><th>Seed</th><th>Player></th>'
 	
-	if args['type'] == 'solo'
+	if args['type'] == 'solo' then
 		output = output .. '<th>Score</th></tr>'
-	else if args['type'] == 'average'
+	elseif args['type'] == 'average' then
 		-- TODO: add a param that allows this to scale up to an arbitrary number of scores
 		output = output .. '<th>Average</th><th>Score 1</th><th>Score 2</th></tr>'
-	else if args['type'] == 'target'
+	elseif args['type'] == 'target' then
 		output = output .. '<th>Maxouts</th><th>Kicker</th></tr>'
 	end
 	
