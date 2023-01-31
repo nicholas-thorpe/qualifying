@@ -69,6 +69,7 @@ end
 function p.SoloQualifier(frame)
 	args = getArgs(frame)
 	
+	args['score'] = args['score'] or 0
 	args['forfeit'] = args['forfeit'] or 'false'
 	
 	-- TODO: Figure out how to handle seeds in an elegant manner
@@ -103,6 +104,8 @@ end
 function p.AverageQualifier()
 	args = getArgs(frame)
 	
+	args['scores'] = args['scores'] or 1
+	args['score1'] = args['score1'] or 0
 	args['forfeit'] = args['forfeit'] or 'false'
 	
 	local output = '<tr><td>' .. '1' .. '</td><td'
@@ -125,6 +128,10 @@ function p.AverageQualifier()
 	-- TODO: Figure out whether this concatenation trick thing even works
 	for i = 1, args['score' .. i], i++ do
 		average = average + args['score' .. i]
+	end
+	
+	if args['scores'] == 0 then
+		args['scores'] = 1
 	end
 	
 	average = average / args['scores']
@@ -151,6 +158,8 @@ end
 function p.TargetQualifier()
 	args = getArgs(frame)
 	
+	args['score'] = args['score'] or 0
+	args['kicker'] = args['kicker'] or 0
 	args['forfeit'] = args['forfeit'] or 'false'
 	
 	local output = '<tr><td>' .. '1' .. '</td><td'
