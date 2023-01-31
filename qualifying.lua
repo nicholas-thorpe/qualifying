@@ -149,7 +149,27 @@ end
 -- kicker = the highest score the player got that didn't meet the requisite target
 -- forfeit = if the player dropped out after qualifying but before bracket
 function p.TargetQualifier()
+	args = getArgs(frame)
 	
+	args['forfeit'] = args['forfeit'] or 'false'
+	
+	local output = '<tr><td>' .. '1' .. '</td><td'
+	
+	-- If the player is listed as forfeiting, strike out their name
+	if args['forfeit'] == true then
+		output = output .. ' style:"text-decoration:line-through;"'
+	end
+	
+	output = output .. '>' .. args['player']
+	
+	if args['flag'] then
+		output = output .. ' {{flag|' .. args['flag'] .. '}}'
+	end
+	
+	output = output .. '</td><td>{{formatnum:' .. args['score'] .. '}}</td>'
+	output = output .. '<td>{{formatnum:' .. args['kicker'] .. '}}</td></tr>'
+	
+	return output
 end
 
 -- End of the table
