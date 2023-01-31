@@ -3,6 +3,7 @@ local p = {}
 local getArgs = require('Module:Arguments').getArgs
 
 -- Import code for player data (opponents)
+-- Currently unused and may be removed
 local OpponentLibraries = require('Module:OpponentLibraries')
 local Opponent = OpponentLibraries.Opponent
 local OpponentDisplay = OpponentLibraries.OpponentDisplay
