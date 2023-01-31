@@ -58,13 +58,13 @@ function p.SoloQualifier(frame)
 	local output = '<tr><td>' .. '1' .. '</td><td'
 	
 	-- If the player is listed as forfeiting, strike out their name
-	if args['forfeit'] == true
+	if args['forfeit'] == true then
 		output = output .. ' style:"text-decoration:line-through;"'
 	end
 	
 	output = output .. '>' .. args['player']
 	
-	if args['flag']
+	if args['flag'] then
 		output = output .. ' {{flag|' .. args['flag'] .. '}}'
 	end
 	
