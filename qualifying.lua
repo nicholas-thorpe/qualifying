@@ -130,20 +130,20 @@ function p.AverageQualifier()
 	
 	local average = 0
 	
-	-- TODO: Figure out whether this concatenation trick thing even works
-	for i = 1, args['score' .. i], i++ do
-		average = average + args['score' .. i]
-	end
-	
 	if args['scores'] == 0 then
 		args['scores'] = 1
+	end
+	
+	for i = 0, i < args['scores'], i++ do
+		-- TODO: Figure out whether this concatenation trick thing even works
+		average = average + args['score' .. i]
 	end
 	
 	average = average / args['scores']
 	
 	output = output .. '<td>{{formatnum:' .. average .. '}}</td>'
 	
-	for i = 1, args['score' .. i], i++ do
+	for i = 1, args['scores'], i++ do
 		output = output .. '<td>{{formatnum:' .. args['score' .. i] .. '}}</td>'
 	end
 	
