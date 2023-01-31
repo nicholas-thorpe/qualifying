@@ -13,6 +13,8 @@ local OpponentDisplay = OpponentLibraries.OpponentDisplay
 -- Parameters:
 -- title = title of the table, default "Qualifying"
 -- type = type of qualifier, default "solo"
+-- scores = optional, how many high scores are to be submitted for AverageQualifier
+-- target = optional, the requisite target score for TargetQualifier
 function p.QualifierStart()
 	args = getArgs(frame)
 	
@@ -30,10 +32,13 @@ function p.QualifierStart()
 	if args['type'] == 'solo' then
 		output = output .. '<th>Score</th></tr>'
 	elseif args['type'] == 'average' then
-		-- TODO: add a param that allows this to scale up to an arbitrary number of scores
-		output = output .. '<th>Average</th><th>Score 1</th><th>Score 2</th></tr>'
+		output = output .. '<th>Average</th>'
+		
+		for i = 0, i < scores, i++ do
+			output = output .. '<th>Score ' .. i .. '</th>'
+		end
 	elseif args['type'] == 'target' then
-		output = output .. '<th>Maxouts</th><th>Kicker</th></tr>'
+		output = output .. '<th>' .. args['target'] .. '</th><th>Kicker</th></tr>'
 	end
 	
 	return output
