@@ -69,6 +69,7 @@ function p.SoloQualifier(frame)
 		output = output .. ' style:"text-decoration:line-through;"'
 	end
 	
+	-- TODO: Decide whether to use the opponent template or something else for player tag
 	output = output .. '>' .. args['player']
 	
 	if args['flag'] then
