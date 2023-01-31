@@ -11,9 +11,25 @@ local OpponentDisplay = OpponentLibraries.OpponentDisplay
 --
 -- Parameters:
 -- title = title of the table, default "Qualifying"
--- type = type of qualifier, defualt "solo"
+-- type = type of qualifier, default "solo"
 function p.QualifierStart()
+	args = getArgs(frame)
 	
+	args['title'] = args['title'] or 'Qualifying'
+	args['type'] = args['type'] or 'solo'
+	
+	local output = '<div class="qualifier-wrapper"><table><tr><th>Seed</th><th>Player></th>'
+	
+	if args['type'] == 'solo'
+		output = output .. '<th>Score</th></tr>'
+	else if args['type'] == 'average'
+		-- TODO: add a param that allows this to scale up to an arbitrary number of scores
+		output = output .. '<th>Average</th><th>Score 1</th><th>Score 2</th></tr>'
+	else if args['type'] == 'target'
+		output = output .. '<th>Maxouts</th><th>Kicker</th></tr>'
+	end
+	
+	return output
 end
 
 -- Players who qualified without submitting a score
@@ -62,7 +78,7 @@ end
 
 -- End of the table
 function p.QualifierEnd()
-	local output = '</div>'
+	local output = '</table></div>'
 	
 	return output
 end
