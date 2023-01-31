@@ -10,8 +10,8 @@ local OpponentDisplay = OpponentLibraries.OpponentDisplay
 -- Beginning of the table
 --
 -- Parameters:
--- columns = number of columns in the table, default 3
 -- title = title of the table, default "Qualifying"
+-- type = type of qualifier, defualt "solo"
 function p.QualifierStart()
 	
 end
