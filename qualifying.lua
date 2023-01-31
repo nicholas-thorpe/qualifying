@@ -8,13 +8,15 @@ local OpponentLibraries = require('Module:OpponentLibraries')
 local Opponent = OpponentLibraries.Opponent
 local OpponentDisplay = OpponentLibraries.OpponentDisplay
 
--- Beginning of the table
---
--- Parameters:
--- title = title of the table, default "Qualifying"
--- type = type of qualifier, default "solo"
--- scores = optional, how many high scores are to be submitted for AverageQualifier
--- target = optional, the requisite target score for TargetQualifier
+--[[
+	Beginning of the table
+	
+	Parameters:
+	title = title of the table, default "Qualifying"
+	type = type of qualifier, default "solo"
+	scores = optional, how many high scores are to be submitted for AverageQualifier
+	target = optional, the requisite target score for TargetQualifier
+]]
 function p.QualifierStart()
 	args = getArgs(frame)
 	
@@ -45,11 +47,13 @@ function p.QualifierStart()
 	return output
 end
 
--- Players who qualified without submitting a score
---
--- Parameters:
--- player = the tag of the player
--- flag = the flag of the player
+--[[
+	Players who qualified without submitting a score
+	
+	Parameters:
+	player = the tag of the player
+	flag = the flag of the player
+]]
 function p.AutoQualifier()
 	args = getArgs(frame)
 	
@@ -65,13 +69,15 @@ function p.AutoQualifier()
 	return output
 end
 
--- Players who qualified by submitting one high score
---
--- Parameters:
--- player = the tag of the player
--- flag = the flag of the player
--- score = the highest score the player got during qualifying
--- forfeit = optional, if the player dropped out after qualifying but before bracket
+--[[
+	Players who qualified by submitting one high score
+	
+	Parameters:
+	player = the tag of the player
+	flag = the flag of the player
+	score = the highest score the player got during qualifying
+	forfeit = optional, if the player dropped out after qualifying but before bracket
+]]
 function p.SoloQualifier(frame)
 	args = getArgs(frame)
 	
@@ -100,14 +106,16 @@ function p.SoloQualifier(frame)
 	return output
 end
 
--- Players who qualified by submitting multiple high scores averaged together
---
--- Parameters:
--- player = the tag of the player
--- flag = the flag of the player
--- scores = how many high scores were submitted
--- scoreX = each of the highest scores the player got during qualifying
--- forfeit = optional, if the player dropped out after qualifying but before bracket
+--[[
+	Players who qualified by submitting multiple high scores averaged together
+	
+	Parameters:
+	player = the tag of the player
+	flag = the flag of the player
+	scores = how many high scores were submitted
+	scoreX = each of the highest scores the player got during qualifying
+	forfeit = optional, if the player dropped out after qualifying but before bracket
+]]
 function p.AverageQualifier()
 	args = getArgs(frame)
 	
@@ -155,14 +163,16 @@ function p.AverageQualifier()
 	return output
 end
 
--- Players who qualified by submitting multiple games targetting a particular score
---
--- Parameters:
--- player = the tag of the player
--- flag = the flag of the player
--- score = the number of times the player scored the requisite target
--- kicker = the highest score the player got that didn't meet the requisite target
--- forfeit = optional, if the player dropped out after qualifying but before bracket
+--[[
+	Players who qualified by submitting multiple games targetting a particular score
+	
+	Parameters:
+	player = the tag of the player
+	flag = the flag of the player
+	score = the number of times the player scored the requisite target
+	kicker = the highest score the player got that didn't meet the requisite target
+	forfeit = optional, if the player dropped out after qualifying but before bracket
+]]
 function p.TargetQualifier()
 	args = getArgs(frame)
 	
@@ -190,7 +200,9 @@ function p.TargetQualifier()
 	return output
 end
 
--- End of the table
+--[[
+	End of the table
+]]
 function p.QualifierEnd()
 	local output = '</table></div>'
 	
