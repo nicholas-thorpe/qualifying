@@ -18,6 +18,7 @@ local OpponentDisplay = OpponentLibraries.OpponentDisplay
 function p.QualifierStart()
 	args = getArgs(frame)
 	
+	-- Default arg values
 	args['title'] = args['title'] or 'Qualifying'
 	args['type'] = args['type'] or 'solo'
 	
@@ -74,6 +75,7 @@ end
 function p.SoloQualifier(frame)
 	args = getArgs(frame)
 	
+	-- Default arg values
 	args['score'] = args['score'] or 0
 	args['forfeit'] = args['forfeit'] or 'false'
 	
@@ -109,6 +111,7 @@ end
 function p.AverageQualifier()
 	args = getArgs(frame)
 	
+	-- Default arg values
 	args['scores'] = args['scores'] or 1
 	args['score1'] = args['score1'] or 0
 	args['forfeit'] = args['forfeit'] or 'false'
@@ -163,6 +166,7 @@ end
 function p.TargetQualifier()
 	args = getArgs(frame)
 	
+	-- Default arg values
 	args['score'] = args['score'] or 0
 	args['kicker'] = args['kicker'] or 0
 	args['forfeit'] = args['forfeit'] or 'false'
