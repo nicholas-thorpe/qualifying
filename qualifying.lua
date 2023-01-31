@@ -45,7 +45,18 @@ end
 -- player = the tag of the player
 -- flag = the flag of the player
 function p.AutoQualifier()
+	args = getArgs(frame)
 	
+	local output = '<tr><td>' .. '1' .. '</td><td>' .. args['player']
+	
+	if args['flag'] then
+		output = output .. ' {{flag|' .. args['flag'] .. '}}'
+	end
+	
+	-- TODO: Add colspan to make this display correctly in Average and Target tables
+	output = output .. '</td><td>AUTO</td></tr>'
+	
+	return output
 end
 
 -- Players who qualified by submitting one high score
