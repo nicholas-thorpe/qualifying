@@ -68,7 +68,7 @@ function p.SoloQualifier(frame)
 		output = output .. ' {{flag|' .. args['flag'] .. '}}'
 	end
 	
-	output = output .. '</td><td>{{formatnum:' .. args['score'] .. '}}</td></td>'
+	output = output .. '</td><td>{{formatnum:' .. args['score'] .. '}}</td></tr>'
 	
 	return output
 end
