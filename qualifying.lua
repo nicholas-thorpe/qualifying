@@ -65,7 +65,7 @@ end
 -- player = the tag of the player
 -- flag = the flag of the player
 -- score = the highest score the player got during qualifying
--- forfeit = if the player dropped out after qualifying but before bracket
+-- forfeit = optional, if the player dropped out after qualifying but before bracket
 function p.SoloQualifier(frame)
 	args = getArgs(frame)
 	
@@ -100,7 +100,7 @@ end
 -- flag = the flag of the player
 -- scores = how many high scores were submitted
 -- scoreX = each of the highest scores the player got during qualifying
--- forfeit = if the player dropped out after qualifying but before bracket
+-- forfeit = optional, if the player dropped out after qualifying but before bracket
 function p.AverageQualifier()
 	args = getArgs(frame)
 	
@@ -154,7 +154,7 @@ end
 -- flag = the flag of the player
 -- score = the number of times the player scored the requisite target
 -- kicker = the highest score the player got that didn't meet the requisite target
--- forfeit = if the player dropped out after qualifying but before bracket
+-- forfeit = optional, if the player dropped out after qualifying but before bracket
 function p.TargetQualifier()
 	args = getArgs(frame)
 	
