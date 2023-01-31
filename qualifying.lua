@@ -61,11 +61,10 @@ function p.TargetQualifier()
 end
 
 -- End of the table
---
--- Parameters:
--- reset = resets the "columns" and "qualifiers" variables in case there's multiple qualifying tables
 function p.QualifierEnd()
+	local output = '</div>'
 	
+	return output
 end
 
 return p
