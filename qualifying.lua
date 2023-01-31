@@ -101,7 +101,43 @@ end
 -- scoreX = each of the highest scores the player got during qualifying
 -- forfeit = if the player dropped out after qualifying but before bracket
 function p.AverageQualifier()
+	args = getArgs(frame)
 	
+	args['forfeit'] = args['forfeit'] or 'false'
+	
+	local output = '<tr><td>' .. '1' .. '</td><td'
+	
+	-- If the player is listed as forfeiting, strike out their name
+	if args['forfeit'] == true then
+		output = output .. ' style:"text-decoration:line-through;"'
+	end
+	
+	output = output .. '>' .. args['player']
+	
+	if args['flag'] then
+		output = output .. ' {{flag|' .. args['flag'] .. '}}'
+	end
+	
+	output = output .. '</td>'
+	
+	local average = 0
+	
+	-- TODO: Figure out whether this concatenation trick thing even works
+	for i = 1, args['score' .. i], i++ do
+		average = average + args['score' .. i]
+	end
+	
+	average = average / args['scores']
+	
+	output = output .. '<td>{{formatnum:' .. average .. '}}</td>'
+	
+	for i = 1, args['score' .. i], i++ do
+		output = output .. '<td>{{formatnum:' .. args['score' .. i] .. '}}</td>'
+	end
+	
+	output = output .. '</tr>'
+	
+	return output
 end
 
 -- Players who qualified by submitting multiple games targetting a particular score
