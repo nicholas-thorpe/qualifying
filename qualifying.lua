@@ -79,6 +79,8 @@ end
 	forfeit = optional, if the player dropped out after qualifying but before bracket
 ]]
 function p.SoloQualifier(frame)
+	-- TODO: Figure out what specifically frame means in this context
+	-- Other modules seemingly use it as a catch all for args in the wiki text
 	args = getArgs(frame)
 	
 	-- Default arg values
