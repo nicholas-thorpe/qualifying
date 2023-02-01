@@ -17,7 +17,7 @@ local OpponentDisplay = OpponentLibraries.OpponentDisplay
 	scores = optional, how many high scores are to be submitted for AverageQualifier
 	target = optional, the requisite target score for TargetQualifier
 ]]
-function p.QualifierStart()
+function p.QualifierStart(frame)
 	args = getArgs(frame)
 	
 	-- Default arg values
@@ -54,7 +54,7 @@ end
 	player = the tag of the player
 	flag = the flag of the player
 ]]
-function p.AutoQualifier()
+function p.AutoQualifier(frame)
 	args = getArgs(frame)
 	
 	local output = '<tr><td>' .. '1' .. '</td><td>' .. args['player']
@@ -116,7 +116,7 @@ end
 	scoreX = each of the highest scores the player got during qualifying
 	forfeit = optional, if the player dropped out after qualifying but before bracket
 ]]
-function p.AverageQualifier()
+function p.AverageQualifier(frame)
 	args = getArgs(frame)
 	
 	-- Default arg values
@@ -176,7 +176,7 @@ end
 	kicker = the highest score the player got that didn't meet the requisite target
 	forfeit = optional, if the player dropped out after qualifying but before bracket
 ]]
-function p.TargetQualifier()
+function p.TargetQualifier(frame)
 	args = getArgs(frame)
 	
 	-- Default arg values
@@ -206,7 +206,7 @@ end
 --[[
 	End of the table
 ]]
-function p.QualifierEnd()
+function p.QualifierEnd(frame)
 	local output = '</table></div>'
 	
 	return output
