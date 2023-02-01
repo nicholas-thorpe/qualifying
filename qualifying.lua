@@ -37,6 +37,10 @@ function p.QualifierStart(frame)
 	elseif args['type'] == 'average' then
 		output = output .. '<th>Average</th>'
 		
+		if args['scores'] then
+			args['scores'] = 1
+		end
+	
 		for i = 0, args['scores'] do
 			output = output .. '<th>Score ' .. i .. '</th>'
 		end
@@ -143,7 +147,7 @@ function p.AverageQualifier(frame)
 	
 	local average = 0
 	
-	if args['scores'] == 0 then
+	if args['scores'] then
 		args['scores'] = 1
 	end
 	
