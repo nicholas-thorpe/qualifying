@@ -37,7 +37,7 @@ function p.QualifierStart(frame)
 	elseif args['type'] == 'average' then
 		output = output .. '<th>Average</th>'
 		
-		for i = 0, i < scores, i++ do
+		for i = 0, args['scores'] do
 			output = output .. '<th>Score ' .. i .. '</th>'
 		end
 	elseif args['type'] == 'target' then
@@ -159,7 +159,7 @@ function p.AverageQualifier(frame)
 	
 	output = output .. '<td>{{formatnum:' .. average .. '}}</td>'
 	
-	for i = 1, args['scores'], i++ do
+	for i = 1, args['scores'] + 1 do
 		output = output .. '<td>{{formatnum:' .. args['score' .. i] .. '}}</td>'
 	end
 	
