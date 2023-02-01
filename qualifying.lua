@@ -145,9 +145,12 @@ function p.AverageQualifier()
 		args['scores'] = 1
 	end
 	
-	for i = 0, i < args['scores'], i++ do
-		-- TODO: Figure out whether this concatenation trick thing even works
-		average = average + args['score' .. i]
+	for i = 0, args['scores'] do
+		if args['score' .. i] then
+			average = average + args['score' .. i]
+		elseif 
+			args['score' .. i] = 0
+		end
 	end
 	
 	average = average / args['scores']
