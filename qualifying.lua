@@ -25,7 +25,7 @@ function p.QualifierStart(frame)
 	args['type'] = args['type'] or 'solo'
 	
 	-- Default to solo if given an invalid table type
-	if args['type'] != 'solo' and args['type'] != 'average' and args['type'] != 'target' then
+	if args['type'] ~= 'solo' and args['type'] ~= 'average' and args['type'] ~= 'target' then
 		args['type'] = 'solo'
 	end
 	
