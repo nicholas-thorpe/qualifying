@@ -154,7 +154,7 @@ function p.AverageQualifier(frame)
 	for i = 0, args['scores'] do
 		if args['score' .. i] then
 			average = average + args['score' .. i]
-		elseif 
+		else then
 			args['score' .. i] = 0
 		end
 	end
